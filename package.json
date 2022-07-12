@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "prettier": "prettier --write .",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "next": "12.2.2",
@@ -16,19 +18,34 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.18.6",
+    "@storybook/addon-actions": "^6.5.9",
+    "@storybook/addon-essentials": "^6.5.9",
+    "@storybook/addon-interactions": "^6.5.9",
+    "@storybook/addon-links": "^6.5.9",
+    "@storybook/builder-webpack5": "^6.5.9",
+    "@storybook/manager-webpack5": "^6.5.9",
+    "@storybook/react": "^6.5.9",
+    "@storybook/testing-library": "^0.0.13",
     "@types/node": "18.0.3",
     "@types/react": "18.0.15",
     "@types/react-dom": "18.0.6",
+    "babel-loader": "^8.2.5",
     "cross-env": "^7.0.3",
     "eslint": "8.19.0",
     "eslint-config-next": "12.2.2",
+    "eslint-plugin-storybook": "^0.6.0",
     "husky": "^8.0.1",
     "prettier": "^2.7.1",
-    "typescript": "4.7.4"
+    "typescript": "4.7.4",
+    "util": "^0.12.4"
   },
   "engines": {
     "node": ">=14.0.0",
     "yarn": ">=1.22.19",
     "npm": "please-use-yarn"
+  },
+  "resolutions": {
+    "webpack": "^5"
   }
 }
