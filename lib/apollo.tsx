@@ -50,7 +50,7 @@ const createApolloClient = (ctx?: GetServerSidePropsContext) => {
   });
 };
 
-export function initializeApollo(initialState = null, ctx = null) {
+export function initializeApollo(initialState = null, ctx = {}) {
   const client = apolloClient ?? createApolloClient(ctx);
 
   // If your page has Next.js data fetching methods that use Apollo Client,
