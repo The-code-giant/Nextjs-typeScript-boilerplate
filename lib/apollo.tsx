@@ -22,8 +22,8 @@ const getToken = (req?: IncomingMessage) => {
 
   return parsedCookie[COOKIES_TOKEN_NAME];
 };
-
-let apolloClient: ApolloClient<NormalizedCacheObject>;
+// @ts-ignore
+let apolloClient: ApolloClient<NormalizedCacheObject> = null;
 
 const createApolloClient = (ctx?: GetServerSidePropsContext) => {
   const httpLink = new HttpLink({
@@ -50,7 +50,8 @@ const createApolloClient = (ctx?: GetServerSidePropsContext) => {
   });
 };
 
-export function initializeApollo(initialState = null, ctx = {}) {
+export function initializeApollo(initialState = null, ctx = null) {
+  // @ts-ignore
   const client = apolloClient ?? createApolloClient(ctx);
 
   // If your page has Next.js data fetching methods that use Apollo Client,
@@ -99,6 +100,7 @@ export function addApolloState(
 }
 
 export function useApollo(pageProps: PageProps) {
+  // @ts-ignore
   const state = pageProps[APOLLO_STATE_PROPERTY_NAME];
   const store = useMemo(() => initializeApollo(state), [state]);
 
