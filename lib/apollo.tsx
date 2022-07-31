@@ -23,7 +23,7 @@ const getToken = (req?: IncomingMessage) => {
   return parsedCookie[COOKIES_TOKEN_NAME];
 };
 
-let apolloClient: ApolloClient<NormalizedCacheObject> = null;
+let apolloClient: ApolloClient<NormalizedCacheObject> = {};
 
 const createApolloClient = (ctx?: GetServerSidePropsContext) => {
   const httpLink = new HttpLink({
